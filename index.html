@@ -4,10 +4,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ruzgar's Website</title>
+    <meta name="theme-color" content="#080d18">
+
+    <title>Rüzgar | Electronics & Projects</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #080d18;
+            --surface: #101a2b;
+            --blue: #398bff;
+            --text: #e8f0ff;
+            --muted: #8494ad;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(circle at 50% 0%,
+                    #174b9633, transparent 55%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        header {
+            padding: 24px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ffffff10;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--blue);
+        }
+
+        nav a {
+            color: var(--muted);
+            text-decoration: none;
+            margin-left: 24px;
+            font-size: 14px;
+            transition: color .2s;
+        }
+
+        nav a:hover {
+            color: var(--blue);
+        }
+
+        main {
+            width: min(900px, 88%);
+            margin: auto;
+            padding: 100px 0;
+            animation: appear .8s ease both;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 8px 13px;
+            background: #398bff18;
+            border: 1px solid #398bff44;
+            border-radius: 30px;
+            color: #75b0ff;
+            font-size: 12px;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: clamp(42px, 8vw, 76px);
+            line-height: 1.05;
+            letter-spacing: -4px;
+            margin-bottom: 25px;
+        }
+
+        h1 span {
+            color: var(--blue);
+        }
+
+        .intro {
+            max-width: 600px;
+            color: var(--muted);
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit, minmax(220px, 1fr)
+            );
+            gap: 16px;
+            margin-top: 65px;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid #ffffff10;
+            padding: 25px;
+            border-radius: 14px;
+            transition: transform .2s, border-color .2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #398bff88;
+        }
+
+        .card h2 {
+            font-size: 17px;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            border-top: 1px solid #ffffff10;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 500px) {
+            header {
+                padding: 20px 6%;
+            }
+
+            nav a {
+                margin-left: 12px;
+            }
+
+            h1 {
+                letter-spacing: -2px;
+            }
+
+            main {
+                padding: 75px 0;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Welcome to my website!</h1>
-    <p>Powered by GitHub Pages.</p>
+
+<header>
+    <div class="logo">RUZGAR<span>.</span></div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+    </nav>
+</header>
+
+<main id="home">
+    <div class="tag">⚡ PERSONAL WEBSITE</div>
+
+    <h1>
+        Hello, I'm<br>
+        <span>Rüzgar.</span>
+    </h1>
+
+    <p class="intro">
+        Welcome to my little corner of the internet.
+        I'm interested in electronics, embedded systems,
+        microcontrollers, programming and making things work
+        that probably shouldn't.
+    </p>
+
+    <section class="cards" id="projects">
+        <article class="card">
+            <h2>⚡ Electronics</h2>
+            <p>
+                Microcontrollers, circuits, sensors,
+                ESP32, ESP8266 and hardware experiments.
+            </p>
+        </article>
+
+        <article class="card">
+            <h2>💻 Programming</h2>
+            <p>
+                Software, web development, automation
+                and random experiments.
+            </p>
+        </article>
+
+        <article class="card">
+            <h2>🔧 Projects</h2>
+            <p>
+                A collection of things I'm building,
+                breaking, fixing and improving.
+            </p>
+        </article>
+    </section>
+</main>
+
+<footer>
+    © 2026 Rüzgar. Powered by GitHub Pages.
+</footer>
+
 </body>
 </html>
